@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	입장하려면 나이를 입력하세요. <br>
-	<form action="05_forwardTest.jsp">
-		<input type=text name="age">
-		<input type="submit" value="입장">
-	</form>
+<%
+	session.invalidate();
+%>
+<h1>모든 섹션 제거</h1>
 </body>
 </html>

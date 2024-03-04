@@ -7,8 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>클라이언트로 얻어온 Cookie</h3>
+
 <%
-	response.sendRedirect("http://www.google.co.kr");
+
+	Cookie[] cookiess = request.getCookies();
+
+	for(Cookie cookie : cookiess )
+		out.println(cookie.getName() + " : " + 
+		cookie.getValue() + "<br>");
 %>
 </body>
 </html>

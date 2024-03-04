@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" action="04_testLogin.jsp">
-		아이디 : <input type=text name=id><br>
-		암호 : <input type=password name=pwd><br>
+<%
+	session.setAttribute("id2", "test");
+	session.setAttribute("pwd2", "test1234");
+	session.setAttribute("age2", 20);
 		
-		<input type="submit" value=로그인>
-	</form>
+%>
+
+<h1>섹션 설정</h1>
 </body>
 </html>
