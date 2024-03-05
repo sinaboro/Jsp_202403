@@ -35,23 +35,38 @@
 			rs = stmt.executeQuery(sql);
 			
 			//4. 데이타베이스 값 출력
-			
-			while(rs.next()){
+			 while(rs.next()){
 				out.println("<tr>");
 				out.println("<td>"+rs.getString("name") +"</td>");
 				out.println("<td>"+rs.getString("userid") +"</td>");
 				out.println("<td>"+rs.getString("pwd") +"</td>");
 				out.println("<td>"+rs.getString("email") +"</td>");
 				out.println("<td>"+rs.getString("phone") +"</td>");
-				out.println("<td>"+rs.getString("admin") +"</td>");
+				out.println("<td>"+rs.getInt("admin") +"</td>");
 				out.println("</tr>");
-			}
+			} 
+		/* 	while(rs.next()){
+				out.println("<tr>");
+				out.println("<td>"+rs.getString(1) +"</td>");
+				out.println("<td>"+rs.getString(2) +"</td>");
+				out.println("<td>"+rs.getString(3) +"</td>");
+				out.println("<td>"+rs.getString(4) +"</td>");
+				out.println("<td>"+rs.getString(5) +"</td>");
+				out.println("<td>"+rs.getInt(6) +"</td>");
+				out.println("</tr>");
+			} */
 			
 			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			
+			try{
+				if(rs !=null) rs.close();
+				if(stmt != null) stmt.close();
+				if(con != null) con.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 	%>
 </table>
