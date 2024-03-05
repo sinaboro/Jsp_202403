@@ -43,8 +43,8 @@
 		pstmt.setString(3, pwd);
 		pstmt.setString(4, email);
 		pstmt.setString(5, phone);
-		//pstmt.setInt(6, Integer.parseInt(admin) );
-		pstmt.setString(6, admin);
+		pstmt.setInt(6, Integer.parseInt(admin) );
+		//pstmt.setString(6, admin);
 		
 		//5. sql구문 실행
 		int result = pstmt.executeUpdate();
