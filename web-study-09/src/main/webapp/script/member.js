@@ -20,7 +20,6 @@ function loginCheck(){
 
 function idCheck(){
 	
-	console.log("isCheck");
 	if(document.frm.userid.value == ""){
 		alert("아이디 입력하여 주십시오.");
 		document.frm.userid.focus();
@@ -30,3 +29,16 @@ function idCheck(){
 	let url = "idCheck.do?userid=" + document.frm.userid.value;
 	window.open(url, "_blank_1", "width=450, height=200");
 }
+
+function idok(){
+	opener.frm.userid.value = document.frm.userid.value;
+	opener.frm.reid.value = document.frm.userid.value;
+	self.close();
+	
+}
+
+
+
+
+
+
