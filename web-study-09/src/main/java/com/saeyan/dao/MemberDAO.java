@@ -179,6 +179,39 @@ public class MemberDAO {
 		
 		return vo;
 	}
+
+	public int updateMember(MemberVO vo) {
+		int result = -1;
+		
+		String sql = "update member set name=?, pwd=?, email=?, "
+				+ "phone=?, admin=? where userid=?";
+		
+		try {
+			//1. 연결
+			con = getConnection();
+			//2. sql 구문 전송
+			pstmt = con.prepareStatement(sql);
+			//3. 맵핑
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPwd());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setString(4, vo.getPhone());
+			pstmt.setInt(5, vo.getAdmin());
+			pstmt.setString(6, vo.getUserid());
+			
+			//4. 구문실행
+			result = pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }
 
 
