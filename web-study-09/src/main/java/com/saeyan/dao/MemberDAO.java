@@ -72,6 +72,7 @@ public class MemberDAO {
 		return result;
 	}
 
+	//회원가입
 	public int insertMember(MemberVO vo) {
 		int result = -1;
 		
@@ -104,6 +105,7 @@ public class MemberDAO {
 		return result;
 	}
 
+	//가입회원 체크
 	public int userCheck(String userid, String pwd) {
 		int result = -1;
 		
@@ -138,6 +140,44 @@ public class MemberDAO {
 		}
 		
 		return result;
+	}
+
+	//로그인 한 회원정보 가져오기
+	public MemberVO getMember(String userid) {
+		String sql = "select * from member where userid=?";
+		MemberVO vo = new MemberVO();
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String name = rs.getString("name");
+				
+				vo.setName(name);
+				vo.setUserid(rs.getString("userid"));
+				vo.setPwd(rs.getString("pwd"));
+				vo.setEmail(rs.getString("email"));
+				vo.setPhone(rs.getString("phone"));
+				vo.setAdmin(rs.getInt("admin"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return vo;
 	}
 }
 
