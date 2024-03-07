@@ -54,9 +54,7 @@ public class UpdateServlet extends HttpServlet {
 		MemberDAO mDao = MemberDAO.getInstance();
 		int result  = mDao.updateMember(vo);
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("message", "회원 정보 수정 완료");
-		response.sendRedirect("member/login.jsp");
+		response.sendRedirect("login.do");
 		
 	}
 
