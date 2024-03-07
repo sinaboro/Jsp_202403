@@ -51,9 +51,9 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				result = 1;
+				result = 1;  //ID 사용가능
 			}else {
-				result  = -1;
+				result  = -1; //ID 중복 사용 불가
 			}
 			
 		}catch(Exception e) {
