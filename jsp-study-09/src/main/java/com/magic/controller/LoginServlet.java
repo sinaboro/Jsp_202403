@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.magic.dao.EmployeesDAO;
+import com.magic.dto.EmployeesVO;
 
 @WebServlet("/login.do")
 public class LoginServlet extends HttpServlet {
@@ -19,7 +23,34 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String admin = request.getParameter("admin");
+		
+		EmployeesDAO mDao = EmployeesDAO.getInstance();
+		String url = "emplyees/login.jsp";
+		
+		//-1 :비밀번호X , 0 : 아이디X, 1 : 로그인성공
+		int result = mDao.userCheck(id, pwd,admin);
+		
+		HttpSession session = request.getSession();
+
+		EmployeesVO vo = mDao.getMember(id);
+		
+		if(result  == 2 || result == 3) {
+			
+			session.setAttribute("emp", vo);
+			session.setAttribute("loginUser", vo);
+			session.setAttribute("result", result);
+			request.setAttribute("message", "로그인 성공했습니다.");
+			url = "emplyees/main.jsp";
+		
+		}else {
+			request.setAttribute("message", "로그인 실패했습니다..");
+		}
+		
+		request.getRequestDispatcher(url)
+			.forward(request, response);
 	}
 
 }

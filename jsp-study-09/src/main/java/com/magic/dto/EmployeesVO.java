@@ -27,6 +27,6 @@ public class EmployeesVO {
 	private String name;
 	private String lev;
 	private Date enter;
-	private String genter;
+	private String gender;
 	private String phone;
 }

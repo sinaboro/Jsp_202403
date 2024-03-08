@@ -24,11 +24,11 @@
 			</tr>
 			<tr>
 				<td >아이디</td>
-				<td><input type="text" name="id"></td>
+				<td><input type="text" name="id" value="test"></td>
 			</tr>
 			<tr>
 				<td >비밀번호</td>
-				<td><input type="password" name="pwd"></td>
+				<td><input type="password" name="pwd" value="1234"></td>
 			</tr>
 			<tr>
 				<td >레벨</td>
