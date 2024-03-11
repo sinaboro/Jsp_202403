@@ -139,6 +139,33 @@ public class EmployeesDAO {
 		
 		return result; 
 	}
+
+	public void insertEmployee(EmployeesVO vo) {
+		String sql = "insert into employees(id,pass,name,lev,enter,gender,phone) "
+				+ "values(?,?,?,?,sysdate,?,?)";
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPass());
+			pstmt.setString(3, vo.getName());
+			pstmt.setString(4, vo.getLev());
+			pstmt.setString(5, "" + vo.getGender()); //1 ==> "1"
+			pstmt.setString(6, vo.getPhone());
+			
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				if( pstmt != null) pstmt.close();
+				if( con != null) con.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 }
 
 
