@@ -37,6 +37,7 @@
 				</td>
 			</tr>			
 		</table>
+		<div style="color: red; text-align: center;">${message}</div>
 	</form>
 </body>
 </html>
