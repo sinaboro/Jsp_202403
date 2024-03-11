@@ -52,6 +52,8 @@ public class MyPageServlet extends HttpServlet {
 		if(result == 1) {
 			vo = eDao.getMember(vo.getId());
 			request.setAttribute("message", "회원 정보가 수정되었습니다");
+			request.setAttribute("member", vo);
+			
 			session.setAttribute("loginUser", vo);
 			url = "employees/joinsuccess.jsp";
 		}
