@@ -17,11 +17,11 @@
 			</tr>
 			<tr>
 				<td align="center">아이디</td>
-				<td><input type="text" name="id"></td>
+				<td><input type="text" name="id" value="admin"></td>
 			</tr>
 			<tr>
 				<td align="center">비밀번호</td>
-				<td><input type="password" name="pwd"></td>
+				<td><input type="password" name="pwd" value="1111"></td>
 			</tr>
 			<tr>
 				<td align="center">레벨</td>

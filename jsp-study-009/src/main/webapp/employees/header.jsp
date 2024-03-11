@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 
 <style type="text/css">
+	.main{
+		margin: 0 auto;
+	}
 	td{
 		border: 1px solid black;
 		width: 200px;
@@ -19,7 +22,7 @@
 
 </head>
 <body>
-	<table>
+	<table class="main">
 		<c:if test="${empty loginUser}">
 			<tr>
 				<td></td><td></td>
@@ -35,6 +38,7 @@
 			</tr>
 		</c:if>
 	</table>
+	<br>
 </body>
 </html>
 
