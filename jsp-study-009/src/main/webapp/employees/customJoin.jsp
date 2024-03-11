@@ -49,7 +49,7 @@
 			<td colspan="2">
 				<input type="submit" value="등록">
 				<input type="reset" value="취소">
-				<input type="button" value="메인 페이지로 이동" onclick="location.href='main.jsp'">
+				<input type="button" value="메인 페이지로 이동" onclick="location.href='login.do'">
 			</td>
 		</tr>	
 	</table>

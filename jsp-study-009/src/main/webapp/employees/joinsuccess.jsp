@@ -53,7 +53,7 @@
 		</tr>
 		<tr align="center">
 			<td colspan="2">
-				<input type="button" value="메인 페이지로 이동" onclick="location.href='employees/main.jsp'">
+				<input type="button" value="메인 페이지로 이동" onclick="location.href='login.do'">
 			</td>
 		</tr>	
 	</table>

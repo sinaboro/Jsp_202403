@@ -18,8 +18,14 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dis = request.getRequestDispatcher("employees/login.jsp");
-		dis.forward(request, response);
+		HttpSession session = request.getSession();
+		EmployeesVO vo = (EmployeesVO)session.getAttribute("loginUser");
+		if(vo != null) {
+			request.getRequestDispatcher("employees/main.jsp").forward(request, response);
+		}else {
+			RequestDispatcher dis = request.getRequestDispatcher("employees/login.jsp");
+			dis.forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
