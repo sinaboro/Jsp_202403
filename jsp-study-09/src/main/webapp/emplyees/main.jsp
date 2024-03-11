@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-<h1>로그인</h1>
-${loginUser }
+<body align="center">
+	<h2>회원 전용 페이지</h2>
+	<img src="images/yuna.jpg" width="30%" height="30%">
 </body>
 </html>
