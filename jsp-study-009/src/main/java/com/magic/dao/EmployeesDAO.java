@@ -113,7 +113,7 @@ public class EmployeesDAO {
 		String sql = "update EMPLOYEES set pass=?, name=?, lev=?, gender=? "
 				+ ", phone=? where id=?";
 		int result = -1;
-	
+
 		try {
 			con = getConnection();
 			pstmt = con.prepareStatement(sql);

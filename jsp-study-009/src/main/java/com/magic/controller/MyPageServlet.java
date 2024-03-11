@@ -45,9 +45,18 @@ public class MyPageServlet extends HttpServlet {
 		vo.setPhone(request.getParameter("phone"));
 		
 		EmployeesDAO eDao = EmployeesDAO.getInstance();
-		
+		HttpSession session = request.getSession();
+		String url = null;
 		int result = eDao.updateEmployee(vo);
 		
+		if(result == 1) {
+			vo = eDao.getMember(vo.getId());
+			request.setAttribute("message", "회원 정보가 수정되었습니다");
+			session.setAttribute("loginUser", vo);
+			url = "employees/joinsuccess.jsp";
+		}
+		
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 }
