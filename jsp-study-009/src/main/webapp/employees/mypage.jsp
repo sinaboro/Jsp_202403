@@ -17,7 +17,7 @@
 			<tr>
 				<td id="front">아이디</td>
 				<td><input type="text" name="id"
-				    value="${loginUser.id}" readonly="readonly" disabled="disabled"></td>
+				    value="${loginUser.id}" readonly="readonly"></td>
 			</tr>
 			<tr>
 				<td id="front">비밀번호</td>

@@ -4,6 +4,7 @@ import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /*
  * ID     NOT NULL VARCHAR2(10) 
@@ -16,6 +17,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 public class EmployeesVO {
 	String id;
 	String pass;

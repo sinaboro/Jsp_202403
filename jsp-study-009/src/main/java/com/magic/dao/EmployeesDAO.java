@@ -110,16 +110,26 @@ public class EmployeesDAO {
 
 	//직원 정보 수정
 	public int updateEmployee(EmployeesVO vo) {
-		String sql = "select * from employees where id = ?";
+		String sql = "update EMPLOYEES set pass=?, name=?, lev=?, gender=? "
+				+ ", phone=? where id=?";
 		int result = -1;
-		
+	
 		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getPass());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getLev());
+			pstmt.setString(4, String.valueOf(vo.getGender()));
+			pstmt.setString(5, vo.getPhone());
+			pstmt.setString(6, vo.getId());
+			
+			result = pstmt.executeUpdate();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally{
 			try {
-				if( rs != null) rs.close();
 				if( pstmt != null) pstmt.close();
 				if( con != null) con.close();
 			}catch(Exception e) {
