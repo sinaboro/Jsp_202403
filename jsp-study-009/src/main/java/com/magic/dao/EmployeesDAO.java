@@ -107,6 +107,28 @@ public class EmployeesDAO {
 		}
 		return vo;
 	}
+
+	//직원 정보 수정
+	public int updateEmployee(EmployeesVO vo) {
+		String sql = "select * from employees where id = ?";
+		int result = -1;
+		
+		try {
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				if( rs != null) rs.close();
+				if( pstmt != null) pstmt.close();
+				if( con != null) con.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result; 
+	}
 }
 
 
