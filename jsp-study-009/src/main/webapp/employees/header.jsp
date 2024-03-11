@@ -15,10 +15,12 @@
 	td{
 		border: 1px solid black;
 		width: 200px;
-		text-align: center;  
+		text-align: center;		
+	}
+	td a{
+		text-decoration:  none;
 	}
 </style>
-
 
 </head>
 <body>
@@ -37,6 +39,28 @@
 				</td>
 			</tr>
 		</c:if>
+		
+		<c:if test="${!empty loginUser}">
+			<tr>
+				<td>${loginUser.name}님 반갑습니다</td>
+				<td>레벨 : ${loginUser.lev}</td>
+				<td><a href="logout.do">로그아웃</a></td>
+				
+				<c:if test="${result==2}">
+					<td><a href="custom.do">사원등록</a></td>
+				</c:if>
+
+				<c:if test="${result==3}">
+					<td>
+						사원등록<br>
+						<span style="color:red">(관리자로 로그인 후 사용 가능)</span>
+					</td>
+				</c:if>
+				
+				<td><a href="mypage.do"> 마이페이지</a></td>
+			</tr>
+		</c:if>
+		
 	</table>
 	<br>
 </body>
