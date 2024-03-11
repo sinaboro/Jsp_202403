@@ -55,6 +55,10 @@ public class MyPageServlet extends HttpServlet {
 			request.setAttribute("member", vo);
 			
 			session.setAttribute("loginUser", vo);
+			
+			result =eDao.userCheck(vo.getId(), vo.getPass(), vo.getLev()); //레벨 체크하기위해서...
+			request.setAttribute("result", result);
+			
 			url = "employees/joinsuccess.jsp";
 		}
 		

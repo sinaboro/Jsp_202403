@@ -42,7 +42,7 @@
 			<td align="center">성별</td>
 			<td>
 			<c:choose>
-				<c:when test='${member.gender=="1"}'>남자</c:when>
+				<c:when test='${member.gender==1}'>남자</c:when>
 				<c:otherwise>여자</c:otherwise>
 			</c:choose>
 			</td>
