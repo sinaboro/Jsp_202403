@@ -17,7 +17,7 @@
 
 </head>
 <body>
-	<form action="login.do" method="post">
+	<form action="login.do" method="post" name="frm">
 		<table align="center">
 			<tr>
 				<td colspan="2" > 로그인</td>
