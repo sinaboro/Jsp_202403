@@ -57,23 +57,44 @@ public class ProductDAO {
 		return list;
 	}
 	
-	void insertProduct(ProductVO vo) {
+	public void insertProduct(ProductVO vo) {
+		String sql = "insert into product values(product_seq.nextval, ?,?,?,?)";
+		Connection con = null;
+		PreparedStatement pstmt = null;
 		
+		try {
+			con = DBManager.getConnection();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getName());
+			pstmt.setInt(2, vo.getPrice());
+			pstmt.setString(3, vo.getPictureUrl());
+			pstmt.setString(4, vo.getDescription());
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt);
+		}
 	}
 	
-	int confirmID(String userid) {
+	
+	
+	public int confirmID(String userid) {
 		return 0;
 	}
 	
-	int userCheck(String userid, String pwd) {
+	public int userCheck(String userid, String pwd) {
 		return 0;
 	}
 	
-	ProductVO selectProductByCode(String code) {
+	public ProductVO selectProductByCode(String code) {
 		return null;
 	}
 	
-	void updateProduct(ProductVO vo) {
+	public void updateProduct(ProductVO vo) {
 		
 	}
 }
