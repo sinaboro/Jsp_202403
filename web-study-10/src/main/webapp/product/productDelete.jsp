@@ -14,15 +14,16 @@
 		<form action="productDelete.do" method="post">
 			<table>
 				<tr>
-					<td><c:choose>
+					<td style="width:20%"><c:choose>
 							<c:when test="${empty product.pictureUrl}">
 								<img src="upload/noimage.gif">
 							</c:when>
 							<c:otherwise>
 								<img src="upload/${product.pictureUrl}">
 							</c:otherwise>
-						</c:choose></td>
-					<td>
+						</c:choose>
+					</td>
+					<td style="width:80%">
 						<table>
 							<tr>
 								<th style="width: 80px">상 품 명</th>
