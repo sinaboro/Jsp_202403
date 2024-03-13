@@ -18,7 +18,6 @@
 		DataSource ds = (DataSource)envContext.lookup("jdbc/myoracle");
 		Connection conn = ds.getConnection();
 		out.println("DBCP 연결 성공");
-	
 	%>
 </body>
 </html>
