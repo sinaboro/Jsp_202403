@@ -121,13 +121,16 @@
 					prefix="localhost_access_log" suffix=".txt" />
 
 
-				<Context docBase="web-study-10" path="/web-study-10"
-					reloadable="true" source="org.eclipse.jst.jee.server:web-study-10" >
+
+				<Context docBase="jsp-study-10" path="/jsp-study-10"
+					reloadable="true" source="org.eclipse.jst.jee.server:jsp-study-10" >
+					
 					<Resource name="jdbc/myoracle" auth="Container"
-					  type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
-					  url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-					  username="ezen" password="1234" maxTotal="20" maxIdle="10"
-					  maxWaitMillis="-1"/>
+		              type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+		              url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+		              username="ezen" password="1234" maxTotal="20" maxIdle="10"
+		              maxWaitMillis="-1"/>
+					
 				</Context>
 			</Host>
 		</Engine>
