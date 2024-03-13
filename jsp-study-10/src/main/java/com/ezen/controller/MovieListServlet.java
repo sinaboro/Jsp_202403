@@ -25,7 +25,7 @@ public class MovieListServlet extends HttpServlet {
 		
 		List<MovieVO> list = MovieDAO.getInstance().GetMovieList();
 		
-		request.setAttribute("movie", list);
+		request.setAttribute("movieList", list);
 		String url = "movie/movieList.jsp";
 		
 //		RequestDispatcher dis = request.getRequestDispatcher(url);
