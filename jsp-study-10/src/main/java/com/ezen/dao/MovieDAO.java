@@ -63,7 +63,7 @@ public class MovieDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		MovieVO vo = null;
+		MovieVO vo = new MovieVO();
 		String sql = "select * from movie where code = ?";
 		
 		try {
