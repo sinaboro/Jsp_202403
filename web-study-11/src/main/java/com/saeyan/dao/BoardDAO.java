@@ -127,6 +127,42 @@ public class BoardDAO {
 		return vo;
 	}
 	
+	public BoardVO checkPassWord(String pass, int num){
+		
+		BoardVO vo  = new BoardVO();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from board where pass = ? and num = ?";
+		
+		try{
+			con = getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pass);
+			pstmt.setInt(2, num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setNum(rs.getInt("num"));
+				vo.setPass(rs.getString("pass"));
+				vo.setName(rs.getString("name"));
+				vo.setEmail(rs.getString("email"));
+				vo.setTitle(rs.getString("title"));
+				vo.setContent(rs.getString("content"));
+				vo.setReadCount(rs.getInt("readcount"));
+				vo.setWriteDate(rs.getTimestamp("writedate"));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, pstmt, rs);
+		}
+		return vo;
+	}
+	
+	
+	
 	public void insertBoard(BoardVO vo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -182,6 +218,28 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		
 		String sql = "delete from board where num = ?";
+		
+		try {
+			con = getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(con, pstmt);
+		}
+	}
+
+	
+	//조회수 증가
+	public void updateReadCount(int num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update board set readcount = readcount+1 where num = ?";
 		
 		try {
 			con = getConnection();
