@@ -16,8 +16,11 @@ public class ActionFactory {
 		System.out.println("ActionFactory : " + command);
 		//조건식 나열 --> action 구현 클래스 
 		
+		//command=board_write_form
 		if(command.equals("board_list")) {
 			action = new BoardListAction();
+		}else if(command.equals("board_write_form")) {
+			action = new BoardWriteActionForm();
 		}
 		
 		
