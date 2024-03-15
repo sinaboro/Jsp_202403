@@ -167,7 +167,7 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into board(num, pass, name, email, title, contnet) "
+		String sql = "insert into board(num, pass, name, email, title, content) "
 				+ "values(board_seq.nextval,?,?,?,?,?)";
 		
 		try {
