@@ -19,15 +19,15 @@ public class BoardCheckPassAction implements Action {
 		
 		String url = null;
 		
-		BoardVO vo = BoardDAO.getInstance().
-				checkPassWord(pass, Integer.parseInt(num));
-		
+		BoardVO vo = BoardDAO.getInstance()
+				.selectBoardByNum(Integer.parseInt(num));
+				
 		System.out.println("vo >> " + vo);
-		if(vo.getPass() == pass) {
+		if(vo.getPass().equals(pass)) {
 			url= "/board/checkSuccess.jsp";
 		}else {
 			url = "/board/boardCheckPass.jsp";
-			request.setAttribute("message", "로그인 실패했습니다.");
+			request.setAttribute("message", "비밀번호가 틀립니다.");
 		}
 		
 		request.getRequestDispatcher(url).forward(request, response);
