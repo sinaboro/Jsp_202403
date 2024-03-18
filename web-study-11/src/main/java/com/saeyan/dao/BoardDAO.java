@@ -161,8 +161,6 @@ public class BoardDAO {
 		return vo;
 	}
 	
-	
-	
 	public void insertBoard(BoardVO vo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
