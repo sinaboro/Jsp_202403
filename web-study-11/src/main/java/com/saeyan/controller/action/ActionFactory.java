@@ -33,6 +33,8 @@ public class ActionFactory {
 			action = new BoardUpdateFormAction();
 		}else if(command.equals("board_update")) {
 			action = new BoardUpdateAction();
+		}else if(command.equals("board_delete")) {
+			action = new BoardDeleteAction();
 		}
 				
 		
